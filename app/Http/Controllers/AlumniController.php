@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class AlumniController extends Controller
 {
     public function index(){
-        $data = DB::table('member')->get();
+        $data = DB::table('member')->groupBy('nis')->paginate(1);
 
         return view('alumni', ['alumni' => $data]);
         // return view('alumni');
@@ -37,5 +37,23 @@ class AlumniController extends Controller
     //    dd($alumni);
 
        return view('editalumni', ['alumni' => $alumni]);
+    }
+    public function update(Request $request){
+        DB::table('member')->where('nis', $request->nis)->update([
+            'nis' => $request->nis,
+            'nama' => $request->nama,
+            'jenis_kelamin' => $request->jk,
+            'jurusan' => $request->jurusan,
+            'keterangan' => $request->keterangan,
+            'date_update' => date('Y-m-d'),
+            'angkatan' => $request->angkatan
+        ]);
+        return redirect()->route('alumni.index');
+    }
+    public function delete($id){
+        // dd($id);
+        DB::table('member')->where('nis', $id)->delete();
+
+        return redirect()->back();
     }
 }

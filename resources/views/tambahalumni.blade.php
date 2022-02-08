@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('content')
+<div class="section-header">
+    <h1>Alumni</h1>
+</div>
     <form action="store" method="POST">
         @csrf
         <label for="nis">Nis : </label>
@@ -16,22 +19,22 @@
 
         <label for="jurusan">Jurusan</label>
         <select name="jurusan" id="jurusan">
-            <option value=""></option>
-            <option value="teavi">Teknik Audio Video</option>
-            <option value="toi">Teknik Otomasi Industri</option>
-            <option value="titl">Teknik Intsalasi Tenaga Listrik</option>
-            <option value="tkj">Teknik Komputer dan Jaringan</option>
-            <option value="rpl">Rekayasa Perangkat Lunak</option>
-            <option value="mm">Multimedia</option>
+            <option value="">Pilih Jurusan</option>
+            <option value="Teknik Audio Video">Teknik Audio Video</option>
+            <option value="Teknik Otomasi Industri">Teknik Otomasi Industri</option>
+            <option value="Teknik Intsalasi Tenaga Listrik">Teknik Intsalasi Tenaga Listrik</option>
+            <option value="Teknik Komputer dan Jaringan">Teknik Komputer dan Jaringan</option>
+            <option value="Rekayasa Perangkat Lunak">Rekayasa Perangkat Lunak</option>
+            <option value="Multimedia">Multimedia</option>
         </select><br>
         {{-- <input type="select" id="jurusan" name="jurusan"><br> --}}
 
         <label for="keterangan">Keterangan</label><br>
-        <input type="radio" id="sudah" name="keterangan" value="S">
+        <input type="radio" id="sudah" name="keterangan" value="Sudah">
         <label for="sudah">Sudah Berkerja</label><br>
-        <input type="radio" id="belum" name="keterangan" value="B">
+        <input type="radio" id="belum" name="keterangan" value="Belum">
         <label for="belum">Belum Berkerja</label><br>
-        <input type="radio" id="wirausaha" name="keterangan" value="W">
+        <input type="radio" id="wirausaha" name="keterangan" value="Wirausaha">
         <label for="wirausaha">Wirausaha</label><br>
 
         <label for="angkatan">Angkatan : </label>
